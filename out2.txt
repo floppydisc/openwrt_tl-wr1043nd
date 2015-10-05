@@ -1,0 +1,82 @@
+admin@admin-PC ~
+$ scp -P 22 ./openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin root@192.168.20.1:/tmp/openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin
+root@192.168.20.1's password:
+openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysup 100% 3648KB   3.6MB/s   00:01
+
+admin@admin-PC ~
+$ scp -P 22
+.bash_profile
+.bashrc
+.inputrc
+.profile
+.ssh/
+openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin
+setup.sh
+
+admin@admin-PC ~
+$ rsync
+-bash: rsync: Kommando nicht gefunden.
+
+admin@admin-PC ~
+$ scp -P 22 ./setup.sh root@192.168.20.1:/setup.sh
+ssh: connect to host 192.168.20.1 port 22: Connection refused
+lost connection
+
+admin@admin-PC ~
+$ scp -P 22 ./setup.sh root@192.168.20.1:/setup.sh
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+SHA256:4j0ny8NEvJ4bunELL2HFrm2B3dW79nnl5XI7g0wd+eI.
+Please contact your system administrator.
+Add correct host key in /home/admin/.ssh/known_hosts to get rid of this message.
+Offending RSA key in /home/admin/.ssh/known_hosts:1
+RSA host key for 192.168.20.1 has changed and you have requested strict checking.
+Host key verification failed.
+lost connection
+
+admin@admin-PC ~
+$ scp -P 22 ./setup.sh root@192.168.20.1:/setup.sh
+The authenticity of host '192.168.20.1 (192.168.20.1)' can't be established.
+RSA key fingerprint is SHA256:4j0ny8NEvJ4bunELL2HFrm2B3dW79nnl5XI7g0wd+eI.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.20.1' (RSA) to the list of known hosts.
+root@192.168.20.1's password:
+setup.sh                                      100% 3470     3.4KB/s   00:00
+
+admin@admin-PC ~
+$ man scp
+
+admin@admin-PC ~
+$ scp -i
+.bash_profile
+.bashrc
+.inputrc
+.profile
+.ssh/
+openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin
+setup.sh
+
+admin@admin-PC ~
+$ pwd
+/home/admin
+
+admin@admin-PC ~
+$ scp -i /home/admin/.ssh/id_rsa -P 22 -r root@192.168.20.1:/etc/config/ /home/admin/
+Enter passphrase for key '/home/admin/.ssh/id_rsa':
+chilli                                        100% 8190     8.0KB/s   00:00
+dhcp                                          100%  719     0.7KB/s   00:00
+dropbear                                      100%   86     0.1KB/s   00:00
+firewall                                      100% 2596     2.5KB/s   00:00
+luci                                          100%  622     0.6KB/s   00:00
+network                                       100%  835     0.8KB/s   00:00
+rpcd                                          100%   97     0.1KB/s   00:00
+system                                        100%  533     0.5KB/s   00:00
+ubootenv                                      100%    0     0.0KB/s   00:00
+ucitrack                                      100%  773     0.8KB/s   00:00
+uhttpd                                        100%  635     0.6KB/s   00:00
+wireless                                      100%  363     0.4KB/s   00:00

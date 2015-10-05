@@ -1,0 +1,81 @@
+login as: root
+root@192.168.20.1's password:
+
+
+BusyBox v1.23.2 (2015-04-22 14:06:06 CEST) built-in shell (ash)
+
+--------------------------------------------------------------------------------
+    __  __      __  _____             __  _____            __
+   / / / /___  / /_/ ___/____  ____  / /_/ ___/__  _______/ /____  ____ ___
+  / /_/ / __ \/ __/\__ \/ __ \/ __ \/ __/\__ \/ / / / ___/ __/ _ \/ __ `__ \
+ / __  / /_/ / /_ ___/ / /_/ / /_/ / /_ ___/ / /_/ (__  ) /_/  __/ / / / / /
+/_/ /_/\____/\__//____/ .___/\____/\__//____/\__, /____/\__/\___/_/ /_/ /_/
+                     /_/                    /____/
+--------------------------------------------------------------------------------
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ CHAOS CALMER (15.05-rc1, r45695)
+ -----------------------------------------------------
+  * 1 1/2 oz Gin            Shake with a glassful
+  * 1/4 oz Triple Sec       of broken ice and pour
+  * 3/4 oz Lime Juice       unstrained into a goblet.
+  * 1 1/2 oz Orange Juice
+  * 1 tsp. Grenadine Syrup
+ -----------------------------------------------------
+root@OpenWrt:~# cd /
+root@OpenWrt:/# ls
+bin       init      overlay   root      sys       var
+dev       lib       proc      sbin      tmp       www
+etc       mnt       rom       setup.sh  usr
+root@OpenWrt:/# ls -l
+drwxr-xr-x    2 root     root           709 Jun  9  2015 bin
+drwxr-xr-x    6 root     root          1160 Jun  3 15:18 dev
+drwxrwxr-x    1 root     root             0 Jun  3 15:20 etc
+-rwxr-xr-x    1 root     root            78 Apr 22 11:24 init
+drwxr-xr-x   13 root     root           790 Jun  9  2015 lib
+drwxr-xr-x    2 root     root             3 May 18 23:26 mnt
+drwxr-xr-x    5 root     root             0 Jan  1  1970 overlay
+dr-xr-xr-x   42 root     root             0 Jan  1  1970 proc
+drwxrwxr-x   16 root     root           223 Jun  9  2015 rom
+drwxr-xr-x    2 root     root             3 May 18 23:26 root
+drwxr-xr-x    2 root     root           735 Jun  9  2015 sbin
+-rwxr-xr-x    1 root     root          3470 Jun  3 15:28 setup.sh
+dr-xr-xr-x   11 root     root             0 Jan  1  1970 sys
+drwxrwxrwt   15 root     root           400 Jun  3 15:19 tmp
+drwxr-xr-x    6 root     root            74 May 18 23:26 usr
+lrwxrwxrwx    1 root     root             4 Jun  9  2015 var -> /tmp
+drwxr-xr-x    4 root     root            67 May 18 23:26 www
+root@OpenWrt:~# /setup.sh
+Connecting to www.hotspotsystem.com (195.228.254.149:80)
+chilli               100% |*******************************|  4572   0:00:00 ETA
+Connecting to hotspotsystem.com (195.228.254.149:80)
+defaults.tmp         100% |*******************************|  2845   0:00:00 ETA
+No packages removed.
+No packages removed.
+No packages removed.
+No packages removed.
+No packages removed.
+Collected errors:
+ * print_dependents_warning: Package kmod-ipv6 is depended upon by packages:
+ * print_dependents_warning:    kmod-nf-conntrack6
+ * print_dependents_warning: These might cease to work if package kmod-ipv6 is removed.
+
+ * print_dependents_warning: Force removal of this package with --force-depends.
+ * print_dependents_warning: Force removal of this package and its dependents
+ * print_dependents_warning: with --force-removal-of-dependent-packages.
+OPENWRT_VER: 15.05-rc1
+MAJOR: 15
+MINOR: 05-rc1
+REV: r45695'
+/etc/hotplug.d/iface/30-chilli: found
+Manual chilli service start command in /etc/hotplug.d/iface/30-chilli: found
+/etc/init.d/chilli: found
+/etc/config/network: found
+WAN interface in /etc/config/network: yes
+Disabling chilli service startup: /etc/init.d/chilli disable
+Keeping manual chilli startup in /etc/hotplug.d/iface/30-chilli
+root@OpenWrt:~#

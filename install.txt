@@ -1,0 +1,43 @@
+#!/bin/sh
+$1 = http://www.hotspotsystem.com/firmware/openwrt/TP-LINK/tplink-tlwr1043/openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin
+$2 = openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin
+wget $1 $2
+sysupgrade -n $2
+wget -O /tmp/setup.sh http://www.hotspotsystem.com/controlcenter/install.php?operator=emenu\&location=2\&version=openwrt; chmod 755 /tmp/setup.sh; /tmp/setup.sh;
+#...system reboots
+opkg update
+opkg install usb-modeswitch kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi
+reboot
+#...system reboots
+ls -l /dev/cdc-wdm0
+#...gibts nicht! --> fehler?
+echo -e "AT^NDISDUP=1,1,\"drei.at\"\r" > /dev/ttyUSB0
+#...bringt die led zum leuchten
+
+
+4.Okt.2015 21:08
+OK...
+nachdem wir die config (und ich den stick) geschossen haben...
+der router bekommt kein ip mehr durch kabel am wan port,
+dafür aber per wlan (-nur leider gibts keine connection über den wan port, wenn man mit dem kabel am router hängt)
+= Bredouille (unleiwand)
+
+daher über ein Cygwin Terminal auf meinem Laptop (mit Paket OpenSSH! die Files zuerst von obigen Quellen bezogen, in mein lokales Arbeitsverzeichnis unter C:\cygwin64\home\admin\ kopiert um sie dann wieder mittels SCP (im Paket OpenSSH enthalten) auf das Gerät zu bringen), nebenbei habe ich noch meinen PublicKey (den ich zuvor schon MINGW64 erstellt habe (siehe unten), der Konsole die beim Programm SourceTree mitinstalliert wird - ein GUI für Git, einer Engine um SourceCode zu verwalten). Mit der Verwendung von GIT-Hub möchte ich die Änderungen an Config-Dateien nachvollziehbar dokumentieren.
+
+```sh
+$ ssh-keygen -t rsa -b 8182 -C "youremail@yourhost.xx"
+$ git config --global user.name "Firstname Lastname"
+$ git config --global user.email youremail@yourhost.xx
+```
+
+per cygwin-terminal habe ich nun die folgenden 2 files am Router appliziert und aschließend wie oben nochmals die .bin-Datei installiert und die setuip.sh ausgeführt .
+
+admin@admin-PC ~
+$ scp -P 22 ./openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin root@192.168.20.1:/tmp/openwrt-15.05-rc1-ar71xx-tl-wr1043nd-v2-sysupgrade.bin
+root@192.168.20.1's password:
+
+und 
+
+admin@admin-PC ~
+$ scp -P 22 ./setup.sh root@192.168.20.1:/setup.sh
+
